@@ -25,7 +25,7 @@ bot.on("message", async message => {
     if (message.channel.type === "dm") return;
 
     request(`https://www.purgomalum.com/service/containsprofanity?text=${message.content.toString()}`, (err, res, body) => {
-      if (body) {
+      if (body === "true") {
         request(`https://insult.mattbas.org/api/insult`, (err, res, body) => {
           message.reply(body);
         });
