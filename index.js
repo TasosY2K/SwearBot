@@ -1,35 +1,35 @@
 const Discord = require('discord.js');
 const request = require('request');
-
+const secret = require('./config.json');
 const bot = new Discord.Client();
 
-let prefix = "?"
+bot.login(secret.token); //secret token
 
-bot.login("NTkxNzAzOTU5MzgzODM0NjM4.XQ0pSA.MmXQ8hP-V2QecMGozWgZ9LwYXYI");
-
-bot.on('ready', async (guild) => {
-    let invite = await bot.generateInvite(["ADMINISTRATOR"]);
-    console.log("invite =>", invite);
+bot.on('ready', async guild => {
+    console.log(`${bot.user.username} is ready!\nInvite => ${await bot.generateInvite(["ADMINISTRATOR"])}`);
 });
 
-bot.on("guildCreate", async (guild) => {
-
+bot.on("guildCreate", async guild => {
+    let channel = bot.channels.get(guild.systemChannelID);
+    if (!channel) return;
+    let embed = new Discord.RichEmbed()
+      .setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16))
+      .setTitle(`I am **${bot.user.username}**, and you better watch your mouth while im in **${guild.name}**`)
+      .addField("Made by", "**(Lean)#0108**\nUsing [discord.js](https://discord.js.org) & [request](https://www.npmjs.com/package/request)")
+      .addField("Links", `[GitHub](https://github.com/TasosY2K/SwearBot)\n[Invite](${await bot.generateInvite(["ADMINISTRATOR"])})`)
+    channel.send(embed);
 });
 
 bot.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
-    let messageArray = message.content.split(" ");
-    let command = messageArray[0];
-    let args = messageArray.slice(1);
 
-
-    request(`https://www.purgomalum.com/service/containsprofanity?text=${messageArray.toString()}`, (err, res, body) => {
-      if (body === "true") {
+    request(`https://www.purgomalum.com/service/containsprofanity?text=${message.content.toString()}`, (err, res, body) => {
+      if (body) {
         request(`https://insult.mattbas.org/api/insult`, (err, res, body) => {
           message.reply(body);
-        })
+        });
       }
-    })
+    });
 
 });

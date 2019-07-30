@@ -1,15 +1,31 @@
 {
   "name": "swear-bot",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.5",
+  "description": "A discord bot that detects swearing messages and swears back at you.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "L34ND3V",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1",
     "request": "^2.88.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TasosY2K/SwearBot.git"
+  },
+  "keywords": [
+    "swearbot",
+    "discord",
+    "bot",
+    "swear",
+    "insult"
+  ],
+  "bugs": {
+    "url": "https://github.com/TasosY2K/SwearBot/issues"
+  },
+  "homepage": "https://github.com/TasosY2K/SwearBot#readme"
 }
