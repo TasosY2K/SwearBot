@@ -32,3 +32,6 @@ $ node index.js
 
 ### Invite Link
 [Click me](https://discordapp.com/oauth2/authorize?client_id=591703959383834638&permissions=8&scope=bot)
+
+### Site
+[Click here](http://bit.ly/swear-bot)
