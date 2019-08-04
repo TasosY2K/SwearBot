@@ -22,7 +22,7 @@ bot.on("guildCreate", async (bot, guild) => {
     channel.send(embed);
 });
 
-bot.on("guildCreate", async (bot, guild) => {
+bot.on("guildDelete", async (bot, guild) => {
   client.user.setActivity(`${bot.guilds.size} guilds | bit.ly/swear-bot`, {type: 'WATCHING'});
 });
 
