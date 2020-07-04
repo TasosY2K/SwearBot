@@ -12,5 +12,5 @@ manager.spawn('auto', 2000, true);
 
 http.createServer((req, res) => {     
     res.writeHead(200, {'Content-Type': 'text/plain'});     
-    res.send('SwearBot is running\n'); 
+    res.end('SwearBot is running\n'); 
 }).listen(process.env.PORT || 5000);
