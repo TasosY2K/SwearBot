@@ -1,16 +1,17 @@
 {
   "name": "swear-bot",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A discord bot that detects swearing messages and swears back at you.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src"
   },
   "author": "L34ND3V",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1",
-    "request": "^2.88.0"
+    "discord.js": "^11.6.4",
+    "dotenv": "^8.2.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {},
   "repository": {

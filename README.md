@@ -10,22 +10,26 @@ Essentially brings chaos to any server.
 
 To create your own instance of SwearBot:
 
-clone and install dependencies (discord.js and request)
+clone and install dependencies
+
 ```sh
 $ git clone https://github.com/TasosY2K/SwearBot.git
 $ cd SwearBot
 $ npm install
 ```
-create config.json and add your token
-```sh
-$ touch config.json
-$ echo "{\"token\":\"YOUR-TOKEN-HERE\"}" >> config.json
-```
-and finally run index.js
+create `.env` and add your token
 
 ```sh
-$ node index.js
+$ touch config.json
+$ echo "TOKEN={YOUR_TOKEN_HERE}" >> .env
 ```
+
+and finally run the app
+
+```sh
+$ npm start
+```
+
 ### Screenshot
 
 ![Screenshot_1](https://user-images.githubusercontent.com/29873078/62166484-8bae5580-b329-11e9-8d25-649aa1923cee.png)

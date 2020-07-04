@@ -1,9 +1,10 @@
+require('dotenv').config();
 const Discord = require('discord.js');
 const request = require('request');
-const secret = require('./config.json');
+const secret = process.env;
 const bot = new Discord.Client();
 
-bot.login(secret.token); //secret token
+bot.login(secret.TOKEN);
 
 bot.on('ready', async guild => {
     bot.user.setActivity(`${bot.guilds.size} guilds | bit.ly/swear-bot`, {type: 'WATCHING'});
@@ -17,7 +18,7 @@ bot.on("guildCreate", async guild => {
     let embed = new Discord.RichEmbed()
       .setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16))
       .setTitle(`I am **${bot.user.username}**, and you better watch your mouth while im in **${guild.name}**`)
-      .addField("Made by", "**(Lean)#0108**\nUsing [discord.js](https://discord.js.org) & [request](https://www.npmjs.com/package/request)")
+      .addField("Made by", "**(Lean)#1337**")
       .addField("Links", `[GitHub](https://github.com/TasosY2K/SwearBot)\n[Website](https://bot.ly/swear-bot)\n[Invite](${await bot.generateInvite(["ADMINISTRATOR"])})`)
     channel.send(embed);
 });
@@ -37,5 +38,4 @@ bot.on("message", async message => {
         });
       }
     });
-
 });
