@@ -10,4 +10,7 @@ const manager = new ShardingManager(__dirname + "/bot.js", {token: secret.TOKEN}
 
 manager.spawn('auto', 2000, true);
 
-http.createServer(onRequest).listen(process.env.PORT || 6000);
+http.createServer((req, res) => {     
+    res.writeHead(200, {'Content-Type': 'text/plain'});     
+    res.send('SwearBot is running\n'); 
+}).listen(process.env.PORT || 5000);
